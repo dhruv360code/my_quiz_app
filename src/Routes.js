@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route,Routes} from 'react-router-dom'
-// import Main from './components/Main'
+import Main from './components/Main'
 import HomePage from './components/HomePage'
 
 
@@ -10,7 +10,7 @@ const AppRoutes = () => {
     <>
     <Routes>
         <Route exact path="/" element={<HomePage />} />
-        {/* <Route exact path="/main" element={<Main />} /> */}
+        <Route exact path="/main" element={<Main />} />
     </Routes>  
     </>
   )
