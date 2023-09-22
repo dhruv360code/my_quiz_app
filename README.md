@@ -62,7 +62,7 @@ This is a quiz application that has been built on ReactJs, Tailwind and ContextA
 
 ## Demo Video Link
 
-[https://github.com/deepak-singh5219/CasualFunnel-Quiz/assets/84671689/f78699a6-df2a-4549-a60c-63d1baf898a7](https://github.com/dhruv360code/my_quiz_app/blob/main/src/assets/quizapp_recording.mp4)
+[https://github.com/dhruv360code/my_quiz_app/blob/main/src/assets/quizapp_recording.mp4]
 
 
 
