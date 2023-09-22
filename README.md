@@ -62,8 +62,9 @@ This is a quiz application that has been built on ReactJs, Tailwind and ContextA
 
 ## Demo Video Link
 
-[https://github.com/dhruv360code/my_quiz_app/blob/main/src/assets/quizapp_recording.mp4]
-
+[[https://github.com/dhruv360code/my_quiz_app/blob/main/src/assets/quizapp_recording.mp4]
+](https://github.com/dhruv360code/my_quiz_app/assets/76557628/60c33270-b006-4579-8d1a-17ee8b823e99
+)
 
 
 ## Screenshots of Quiz App
