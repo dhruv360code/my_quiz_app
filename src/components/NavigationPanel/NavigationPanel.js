@@ -60,6 +60,28 @@ const NavigationPanel = () => {
             </button>
           ))}
         </div>
+
+        {/* <div className="flex flex-col mt-5">
+          <div className="flex flex-row mt-5">
+            <button className={`rounded p-2 bg-yellow-500 mr-3 text-white`}>
+              {1}
+            </button>{" "}
+            Marked for Review
+          </div>
+          <div className="flex flex-row mt-2">
+            <button className={`rounded p-2 bg-green-500 mr-3 text-white`}>
+              {2}
+            </button>{" "}
+            Answered
+          </div>
+
+          <div className="flex flex-row mt-2">
+            <button className={"rounded p-2 bg-blue-500 mr-3 text-white"}>
+              {3}
+            </button>{" "}
+            Current Question
+          </div>
+        </div> */}
       </div>
     </>
   );
