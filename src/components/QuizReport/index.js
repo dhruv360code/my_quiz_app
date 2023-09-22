@@ -1,6 +1,7 @@
 import { useQuiz } from "../../context";
 
 const QuizReport = () => {
+  // eslint-disable-next-line
   const { result, quizDetails, attemptedQuestions } = useQuiz();
   console.log("result ", result);
   const getScore = (result) => {
