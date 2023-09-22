@@ -46,40 +46,48 @@ const QuestionScreen = () => {
   const textVal = markedForReview.includes(activeQuestion) ? "Unmark" : "Mark";
 
   return (
-    <div className="h-full  w-full bg-slate-100   flex  fixed">
-      <NavigationPanel />
-      <div className="p-10 w-auto md:w-4/5">
-        {/* Header */}
-        <QuizHeader />
+    <>
+      {questions.length > 0 ? (
+        <div className="h-full  w-full bg-slate-100   flex  fixed">
+          <NavigationPanel />
+          <div className="p-10 w-auto md:w-4/5">
+            {/* Header */}
+            <QuizHeader />
 
-        {/* add question */}
+            {/* add question */}
 
-        <Question
-          question={question}
-          choices={choices}
-          type={type}
-          correctAnswers={correctAnswers}
-          activeQuestion={activeQuestion}
-          attemptedQuestions={attemptedQuestions}
-          markedForReview={markedForReview}
-          isChecked={isChecked}
-        />
+            <Question
+              question={question}
+              choices={choices}
+              type={type}
+              correctAnswers={correctAnswers}
+              activeQuestion={activeQuestion}
+              attemptedQuestions={attemptedQuestions}
+              markedForReview={markedForReview}
+              isChecked={isChecked}
+            />
 
-        <button
-          className="mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          onClick={onClickNext}
-        >
-          {activeQuestion + 1 === totalQuestions ? "Finish" : "Next"}
-        </button>
-        {/* Button For Mark for Review */}
-        <button
-          className="mt-5 ml-5 bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
-          onClick={() => handleMarkForReview(activeQuestion)}
-        >
-          {textVal}
-        </button>
-      </div>
-    </div>
+            <button
+              className="mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              onClick={onClickNext}
+            >
+              {activeQuestion + 1 === totalQuestions ? "Finish" : "Next"}
+            </button>
+            {/* Button For Mark for Review */}
+            <button
+              className="mt-5 ml-5 bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
+              onClick={() => handleMarkForReview(activeQuestion)}
+            >
+              {textVal}
+            </button>
+          </div>
+        </div>
+      ) : (
+        <div className="h-screen flex items-center justify-center">
+          Loading...
+        </div>
+      )}
+    </>
   );
 };
 
