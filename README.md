@@ -29,42 +29,47 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+# Application
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This is a quiz application that has been built on ReactJs, Tailwind and ContextAPI. It also provide you the report and all questions are navigatable. Have utilised this API  [Open Trivia Database API](https://opentdb.com/api.php?amount=15).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Features
+- Questions are navigatable.
+- Track all questions that have been attempted and marked for review.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Quiz Flow
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- The application starts with a welcome page where the user required to submit their email address.
 
-## Learn More
+- Then the user is presented with 15 quiz questions.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- After 30 mins, quiz auto submits and then user is redirected to report section.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Challenges Faced
 
-### Code Splitting
+- Navigation Between Questions and managing states porperly.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Generating the quiz report was also tricky as I had to show user's selected answer and correct answer side by side.
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Technologies
 
-### Making a Progressive Web App
+- Tailwind CSS
+- Axios
+- React.js
+- Context API
+- TypeScript
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Demo Video Link
 
-### Advanced Configuration
+https://github.com/deepak-singh5219/CasualFunnel-Quiz/assets/84671689/f78699a6-df2a-4549-a60c-63d1baf898a7
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Screenshots of Quiz App
+![Alt text](image.png)
+![Alt text](image-1.png)
+![Alt text](image-2.png)
+![Alt text](image-3.png)
+![Alt text](image-4.png)
+![Alt text](screencapture-localhost-3000-main-2023-09-21-01_10_09.png)
