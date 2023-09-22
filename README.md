@@ -68,9 +68,16 @@ This is a quiz application that has been built on ReactJs, Tailwind and ContextA
 
 
 ## Screenshots of Quiz App
-![Alt text](image.png)
-![Alt text](image-1.png)
-![Alt text](image-2.png)
-![Alt text](image-3.png)
-![Alt text](image-4.png)
-![Alt text](screencapture-localhost-3000-main-2023-09-21-01_10_09.png)
+![lap1](https://github.com/dhruv360code/my_quiz_app/assets/76557628/f4d43265-00f3-4676-a22f-a03b1747d65c)
+![lap2](https://github.com/dhruv360code/my_quiz_app/assets/76557628/0b8744d0-b4da-4a1c-8fbd-884c80c64575)
+![lap3](https://github.com/dhruv360code/my_quiz_app/assets/76557628/5a1a2fc0-6fc4-41c9-91ee-e5fbbc41616c)
+![lap4](https://github.com/dhruv360code/my_quiz_app/assets/76557628/024ec364-2613-4775-8d3c-d0ab94813bdc)
+![lap5](https://github.com/dhruv360code/my_quiz_app/assets/76557628/f91e5d09-0ac0-4621-8db7-04c07f15c75e)
+![lap6](https://github.com/dhruv360code/my_quiz_app/assets/76557628/1b40a3c0-7076-4d59-af4e-9ae0302dfe73)
+![mob1](https://github.com/dhruv360code/my_quiz_app/assets/76557628/b0723559-c486-4ac2-939d-c457bd67fa6b)
+![mob2](https://github.com/dhruv360code/my_quiz_app/assets/76557628/c8efb80f-5a6a-48c2-b8e8-d32ebfe2fbc5)
+![mob3](https://github.com/dhruv360code/my_quiz_app/assets/76557628/9f6fe55b-51db-44ba-8360-fdb562f93b91)
+![mob4](https://github.com/dhruv360code/my_quiz_app/assets/76557628/d77cbe11-4741-4406-a963-56301db6b0f3)
+![mob5 - Copy](https://github.com/dhruv360code/my_quiz_app/assets/76557628/920dde0e-5e25-48c7-89ed-51f9e3589d42)
+![mob5](https://github.com/dhruv360code/my_quiz_app/assets/76557628/bb429d74-52b5-431f-886f-5cd1b5ab59ed)
+
