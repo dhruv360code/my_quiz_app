@@ -61,7 +61,7 @@ const NavigationPanel = () => {
           ))}
         </div>
 
-        {/* <div className="flex flex-col mt-5">
+        <div className="flex flex-col mt-5">
           <div className="flex flex-row mt-5">
             <button className={`rounded p-2 bg-yellow-500 mr-3 text-white`}>
               {1}
@@ -81,7 +81,7 @@ const NavigationPanel = () => {
             </button>{" "}
             Current Question
           </div>
-        </div> */}
+        </div> 
       </div>
     </>
   );
