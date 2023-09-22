@@ -5,6 +5,7 @@ import { useQuiz } from "../../context/index";
 import NavigationPanel from "../NavigationPanel/NavigationPanel";
 import Question from "../smallComponents/Questions";
 import QuizHeader from "../smallComponents/QuizHeader";
+import { ScreenTypes } from "../../context/index";
 
 const QuestionScreen = () => {
   // eslint-disable-next-line
@@ -19,11 +20,11 @@ const QuestionScreen = () => {
     activeQuestion,
     setActiveQuestion,
     attemptedQuestions,
-    setAttemptedQuestions,
     handleMarkForReview,
     markedForReview,
     isChecked,
     totalQuestions,
+    setCurrentScreen,
   } = useQuiz();
 
   const currentQuestion = questions[activeQuestion];
@@ -31,16 +32,13 @@ const QuestionScreen = () => {
   const { question, type, choices, correctAnswers } = currentQuestion;
 
   const onClickNext = () => {
-    if (!attemptedQuestions.includes(activeQuestion)) {
-      setAttemptedQuestions([...attemptedQuestions, activeQuestion]);
-    }
-
     if (activeQuestion !== questions.length - 1) {
       setActiveQuestion((prev) => prev + 1);
     } else {
       // how long does it take to finish the quiz
       const timeTaken = quizDetails.totalTime - timer;
       setEndTime(timeTaken);
+      setCurrentScreen(ScreenTypes.QuizReport);
     }
     setSelectedAnswer([]);
   };

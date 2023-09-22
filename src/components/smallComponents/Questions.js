@@ -3,16 +3,25 @@ import { useQuiz } from "../../context/index";
 
 const Question = ({ question, choices }) => {
   const [selectedChoice, setSelectedChoice] = useState(null);
-  const { result, activeQuestion, setResult } = useQuiz();
+  const { result, activeQuestion, setResult, setAttemptedQuestions } =
+    useQuiz();
 
   const handleChoiceChange = (index) => {
     setSelectedChoice(index);
+
+    setAttemptedQuestions((prev) => {
+      const newActivatedQuestions = [...prev];
+      newActivatedQuestions.push(activeQuestion);
+      return newActivatedQuestions;
+    });
 
     setResult((prevResult) => {
       const newResult = [...prevResult];
       newResult[activeQuestion].selectedAnswer = index;
       newResult[activeQuestion].marked = true;
-      newResult[activeQuestion].isMatch =   newResult[activeQuestion].selectedAnswer === newResult[activeQuestion].correctAnswers[0];    
+      newResult[activeQuestion].isMatch =
+        newResult[activeQuestion].selectedAnswer ===
+        newResult[activeQuestion].correctAnswers[0];
       return newResult;
     });
   };
@@ -23,6 +32,7 @@ const Question = ({ question, choices }) => {
 
     setSelectedChoice(result[activeQuestion].selectedAnswer);
     console.log(selectedChoice);
+    // eslint-disable-next-line
   }, [activeQuestion]);
 
   return (
