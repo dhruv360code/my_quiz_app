@@ -5,6 +5,7 @@ import { ScreenTypes } from "../../context/index";
 
 import NavigationPanel from "../NavigationPanel/NavigationPanel";
 import Question from "../smallComponents/Questions";
+import QuizHeader from "../smallComponents/QuizHeader";
 
 const QuestionScreen = () => {
   const [selectedAnswer, setSelectedAnswer] = useState([]);
@@ -97,6 +98,7 @@ const QuestionScreen = () => {
       <NavigationPanel />
       <div className="p-10 w-auto md:w-4/5">
         {/* Header */}
+        <QuizHeader/>  
 
         {/* add question */}
 

@@ -1,24 +1,23 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { createContext, useContext, useEffect, useState } from "react";
+import axios from "axios";
 
 export const ScreenTypes = {
-  SplashScreen: 'SplashScreen',
-  QuizDetailsScreen: 'QuizDetailsScreen',
-  QuestionScreen: 'QuestionScreen',
-  ResultScreen: 'ResultScreen',
+  SplashScreen: "SplashScreen",
+  QuizDetailsScreen: "QuizDetailsScreen",
+  QuestionScreen: "QuestionScreen",
+  ResultScreen: "ResultScreen",
 };
 
 export const QuizContext = createContext();
 
 export const useQuiz = () => {
   return useContext(QuizContext);
-}
+};
 
 const decodeHTMLEntities = (input) => {
-  const doc = new DOMParser().parseFromString(input, 'text/html');
+  const doc = new DOMParser().parseFromString(input, "text/html");
   return doc.documentElement.textContent;
-}
-
+};
 
 const initialState = {
   currentScreen: ScreenTypes.SplashScreen,
@@ -43,16 +42,18 @@ const initialState = {
     totalQuestions: 0,
     totalScore: 0,
     totalTime: 0,
-    selectedQuizTopic: 'React',
+    selectedQuizTopic: "React",
   },
 };
 
-const  QuizProvider = ({ children }) => {
+const QuizProvider = ({ children }) => {
   const [timer, setTimer] = useState(initialState.timer);
   const [endTime, setEndTime] = useState(initialState.endTime);
   const [result, setResult] = useState(initialState.result);
   const [activeQuestion, setActiveQuestion] = useState(0);
-  const [currentScreen, setCurrentScreen] = useState(initialState.currentScreen);
+  const [currentScreen, setCurrentScreen] = useState(
+    initialState.currentScreen
+  );
 
   const [questions, setQuestions] = useState([]);
   const [attemptedQuestions, setAttemptedQuestions] = useState([]);
@@ -72,14 +73,18 @@ const  QuizProvider = ({ children }) => {
 
   const fetchQuestionsFromAPI = async () => {
     try {
-      const response = await axios.get('https://opentdb.com/api.php?amount=15');
+      const response = await axios.get("https://opentdb.com/api.php?amount=15");
       const { results } = response.data;
-      for(let i = 0; i < results.length; i++) {
+      for (let i = 0; i < results.length; i++) {
         results[i].question = decodeHTMLEntities(results[i].question);
-        results[i].correct_answer = decodeHTMLEntities(results[i].correct_answer);
-        results[i].incorrect_answers = results[i].incorrect_answers.map((answer) => {
-          return decodeHTMLEntities(answer);
-        });
+        results[i].correct_answer = decodeHTMLEntities(
+          results[i].correct_answer
+        );
+        results[i].incorrect_answers = results[i].incorrect_answers.map(
+          (answer) => {
+            return decodeHTMLEntities(answer);
+          }
+        );
       }
 
       const quesArray = results.map((ques) => {
@@ -100,7 +105,7 @@ const  QuizProvider = ({ children }) => {
       setResult(rst);
       setQuestions(quesArray);
     } catch (error) {
-      console.error('Error fetching questions:', error);
+      console.error("Error fetching questions:", error);
     }
   };
 
@@ -109,19 +114,21 @@ const  QuizProvider = ({ children }) => {
     if (!markedForReview.includes(activeQuestion)) {
       setMarkedForReview([...markedForReview, activeQuestion]);
     } else {
-      const filterArray = markedForReview.filter((ele) => ele !== activeQuestion);
+      const filterArray = markedForReview.filter(
+        (ele) => ele !== activeQuestion
+      );
       setMarkedForReview(filterArray);
     }
   };
 
   const handleQuestionClick = (index) => {
-    console.log('clicked');
+    console.log("clicked");
     setActiveQuestion(index);
   };
 
   const QuizInfo = {
-    topic: 'Quiz',
-    level: 'Intermediate',
+    topic: "Quiz",
+    level: "Intermediate",
     totalQuestions: 15,
     totalScore: 75,
     totalTime: 1800,
@@ -139,7 +146,7 @@ const  QuizProvider = ({ children }) => {
     totalQuestions,
     totalScore,
     totalTime,
-    selectedQuizTopic: 'GK',
+    selectedQuizTopic: "GK",
   };
 
   const quizContextValue = {
@@ -147,6 +154,7 @@ const  QuizProvider = ({ children }) => {
     setCurrentScreen,
     questions,
     setQuestions,
+    totalQuestions: QuizInfo.totalQuestions,
     result,
     setResult,
     quizDetails,
@@ -164,7 +172,11 @@ const  QuizProvider = ({ children }) => {
     isChecked,
   };
 
-  return <QuizContext.Provider value={quizContextValue}>{children}</QuizContext.Provider>;
-}
+  return (
+    <QuizContext.Provider value={quizContextValue}>
+      {children}
+    </QuizContext.Provider>
+  );
+};
 
 export default QuizProvider;
