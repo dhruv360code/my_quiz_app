@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { useQuiz } from "../../context/index";
-import { ScreenTypes } from "../../context/index";
 
 import NavigationPanel from "../NavigationPanel/NavigationPanel";
 import Question from "../smallComponents/Questions";
@@ -9,15 +8,11 @@ import QuizHeader from "../smallComponents/QuizHeader";
 
 const QuestionScreen = () => {
   const [selectedAnswer, setSelectedAnswer] = useState([]);
-  const [showTimerModal, setShowTimerModal] = useState(false);
-  const [showResultModal, setShowResultModal] = useState(false);
-
   const {
     questions,
     // setQuestions,
     quizDetails,
     result,
-    setCurrentScreen,
     timer,
     // setTimer,
     setEndTime,
@@ -62,7 +57,6 @@ const QuestionScreen = () => {
       // how long does it take to finish the quiz
       const timeTaken = quizDetails.totalTime - timer;
       setEndTime(timeTaken);
-      setShowResultModal(true);
     }
     setSelectedAnswer([]);
   };
@@ -78,18 +72,6 @@ const QuestionScreen = () => {
   };
 
   const textVal = markedForReview.includes(activeQuestion) ? "Unmark" : "Mark";
-
-  const handleModal = () => {
-    setCurrentScreen(ScreenTypes.ResultScreen);
-    document.body.style.overflow = "auto";
-  };
-
-  // to prevent scrolling when modal is opened
-  useEffect(() => {
-    if (showTimerModal || showResultModal) {
-      document.body.style.overflow = "hidden";
-    }
-  }, [showTimerModal, showResultModal]);
 
   return (
     <div className="h-full  w-full bg-slate-100   flex  fixed">
