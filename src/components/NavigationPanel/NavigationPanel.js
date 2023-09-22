@@ -40,7 +40,7 @@ const NavigationPanel = () => {
       )}
 
       <div
-        className={`top-0 right-0 w-[20vw]  h-full bg-white p-10 pl-10 text-blue fixed h-full z-40  ease-in-out duration-300 ${
+        className={`top-0 right-0  w-auto md:w-1/5  h-full bg-white p-10 pl-10 text-blue fixed h-full z-40  ease-in-out duration-300 ${
           showSidebar ? "translate-x-0 " : "translate-x-full"
         }`}
       >

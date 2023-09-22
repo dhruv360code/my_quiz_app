@@ -14,6 +14,12 @@ export const useQuiz = () => {
   return useContext(QuizContext);
 }
 
+const decodeHTMLEntities = (input) => {
+  const doc = new DOMParser().parseFromString(input, 'text/html');
+  return doc.documentElement.textContent;
+}
+
+
 const initialState = {
   currentScreen: ScreenTypes.SplashScreen,
   setCurrentScreen: () => {},
@@ -68,6 +74,14 @@ const  QuizProvider = ({ children }) => {
     try {
       const response = await axios.get('https://opentdb.com/api.php?amount=15');
       const { results } = response.data;
+      for(let i = 0; i < results.length; i++) {
+        results[i].question = decodeHTMLEntities(results[i].question);
+        results[i].correct_answer = decodeHTMLEntities(results[i].correct_answer);
+        results[i].incorrect_answers = results[i].incorrect_answers.map((answer) => {
+          return decodeHTMLEntities(answer);
+        });
+      }
+
       const quesArray = results.map((ques) => {
         const { incorrect_answers, correct_answer, type, question } = ques;
         const choicesAppended = [...incorrect_answers, correct_answer];
