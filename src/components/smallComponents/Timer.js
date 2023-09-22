@@ -3,24 +3,28 @@ import { useQuiz } from "../../context/index";
 import { ScreenTypes } from "../../context/index";
 
 function Timer() {
+  // eslint-disable-next-line
+  const { timer, setTimer } = useQuiz();
   const [seconds, setSeconds] = useState(1 * 1800);
   const { setCurrentScreen } = useQuiz();
-
   useEffect(() => {
     const interval = setInterval(() => {
       setSeconds((prevSeconds) => {
         if (prevSeconds === 1) {
           clearInterval(interval);
           setCurrentScreen(ScreenTypes.QuizReport);
+          setTimer(0);
           return 0;
         }
 
+        setTimer(prevSeconds - 1);
         return prevSeconds - 1;
       });
     }, 1000);
 
     // Cleanup the interval when the component unmounts
     return () => clearInterval(interval);
+    // eslint-disable-next-line
   }, []); // Empty dependency array to run the effect only once on mount
 
   const minutes = Math.floor((seconds % 3600) / 60);

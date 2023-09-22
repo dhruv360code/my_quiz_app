@@ -7,12 +7,12 @@ import Question from "../smallComponents/Questions";
 import QuizHeader from "../smallComponents/QuizHeader";
 
 const QuestionScreen = () => {
+  // eslint-disable-next-line
   const [selectedAnswer, setSelectedAnswer] = useState([]);
   const {
     questions,
     // setQuestions,
     quizDetails,
-    result,
     timer,
     // setTimer,
     setEndTime,
@@ -31,22 +31,6 @@ const QuestionScreen = () => {
   const { question, type, choices, correctAnswers } = currentQuestion;
 
   const onClickNext = () => {
-    const isMatch =
-      selectedAnswer.length === correctAnswers.length &&
-      selectedAnswer.every((answer) => correctAnswers.includes(answer));
-
-    const idx = result.findIndex(
-      (resultObj) => resultObj.question === currentQuestion.question
-    );
-
-    if (selectedAnswer.length > 0) {
-      result[idx] = {
-        ...currentQuestion,
-        selectedAnswer,
-        isMatch,
-        marked: true,
-      };
-    }
     if (!attemptedQuestions.includes(activeQuestion)) {
       setAttemptedQuestions([...attemptedQuestions, activeQuestion]);
     }
@@ -59,16 +43,6 @@ const QuestionScreen = () => {
       setEndTime(timeTaken);
     }
     setSelectedAnswer([]);
-  };
-
-  const handleAnswerSelection = (e) => {
-    const { name, checked } = e.target;
-
-    if (type === "multiple" || type === "boolean") {
-      if (checked) {
-        setSelectedAnswer([name]);
-      }
-    }
   };
 
   const textVal = markedForReview.includes(activeQuestion) ? "Unmark" : "Mark";
@@ -87,7 +61,6 @@ const QuestionScreen = () => {
           choices={choices}
           type={type}
           correctAnswers={correctAnswers}
-          handleQuestionClick={handleAnswerSelection}
           activeQuestion={activeQuestion}
           attemptedQuestions={attemptedQuestions}
           markedForReview={markedForReview}
