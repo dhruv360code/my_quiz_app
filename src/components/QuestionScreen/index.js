@@ -17,10 +17,9 @@ const QuestionScreen = () => {
     // setQuestions,
     quizDetails,
     result,
-    setResult,
     setCurrentScreen,
     timer,
-    setTimer,
+    // setTimer,
     setEndTime,
     activeQuestion,
     setActiveQuestion,
@@ -29,6 +28,7 @@ const QuestionScreen = () => {
     handleMarkForReview,
     markedForReview,
     isChecked,
+    totalQuestions,
   } = useQuiz();
 
   const currentQuestion = questions[activeQuestion];
@@ -43,6 +43,7 @@ const QuestionScreen = () => {
     const idx = result.findIndex(
       (resultObj) => resultObj.question === currentQuestion.question
     );
+
     if (selectedAnswer.length > 0) {
       result[idx] = {
         ...currentQuestion,
@@ -90,15 +91,12 @@ const QuestionScreen = () => {
     }
   }, [showTimerModal, showResultModal]);
 
-  // timer hooks, handle conditions related to time
-  //   useTimer(timer, quizDetails, setEndTime, setTimer, setShowTimerModal, showResultModal)
-
   return (
     <div className="h-full  w-full bg-slate-100   flex  fixed">
       <NavigationPanel />
       <div className="p-10 w-auto md:w-4/5">
         {/* Header */}
-        <QuizHeader/>  
+        <QuizHeader />
 
         {/* add question */}
 
@@ -118,7 +116,14 @@ const QuestionScreen = () => {
           className="mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           onClick={onClickNext}
         >
-          Next Question
+          {activeQuestion + 1 === totalQuestions ? "Finish" : "Next"}
+        </button>
+        {/* Button For Mark for Review */}
+        <button
+          className="mt-5 ml-5 bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
+          onClick={() => handleMarkForReview(activeQuestion)}
+        >
+          {textVal}
         </button>
       </div>
     </div>

@@ -98,7 +98,7 @@ const QuizProvider = ({ children }) => {
         return {
           marked: false,
           ...currQues,
-          selectedAnswer: [],
+          selectedAnswer: "",
           isMatch: false,
         };
       });

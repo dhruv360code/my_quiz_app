@@ -9,19 +9,16 @@ const NavigationPanel = () => {
     attemptedQuestions,
     handleQuestionClick,
     markedForReview,
-
-} = useQuiz();
+  } = useQuiz();
 
   return (
     <>
       {showSidebar ? (
         <button
-
           className="flex text-4xl text-blue  items-center cursor-pointer fixed right-10 top-6 z-50"
-          style = {{color: "#2563EB"}}
+          style={{ color: "#2563EB" }}
           onClick={() => setShowSidebar(!showSidebar)}
         >
-
           x
         </button>
       ) : (
@@ -44,28 +41,26 @@ const NavigationPanel = () => {
           showSidebar ? "translate-x-0 " : "translate-x-full"
         }`}
       >
-       <div className="pt-10 grid grid-cols-5 gap-2">
-        {questions.map((question, index) => (
-          <button
-            key={index}
-            onClick={() => handleQuestionClick(index)}
-            className={`rounded p-1 ${
-              index === activeQuestion
-                ? "bg-blue-500 text-white"
-                : attemptedQuestions.includes(index)
-                ? "bg-green-500 text-white"
-                : markedForReview.includes(index)
-                ? "bg-yellow-500 text-black"
-                : "bg-gray-300 text-black"
-            }`}
-          >
-            {index + 1}
-          </button>
-        ))}
+        <div className="pt-10 grid grid-cols-5 gap-2">
+          {questions.map((question, index) => (
+            <button
+              key={index}
+              onClick={() => handleQuestionClick(index)}
+              className={`rounded p-1 ${
+                index === activeQuestion
+                  ? "bg-blue-500 text-white"
+                  : attemptedQuestions.includes(index)
+                  ? "bg-green-500 text-white"
+                  : markedForReview.includes(index)
+                  ? "bg-yellow-500 text-white"
+                  : "bg-gray-300 text-black"
+              }`}
+            >
+              {index + 1}
+            </button>
+          ))}
+        </div>
       </div>
-      </div>
-
-
     </>
   );
 };
