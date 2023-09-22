@@ -13,10 +13,10 @@ const Main = () => {
   useEffect(() => {
     setCurrentScreen(ScreenTypes.QuizDetailsScreen);
     // alert("on the main screen")
+    // eslint-disable-next-line
   }, []);
 
   const screenComponents = {
-    // [ScreenTypes.SplashScreen]: <SplashScreen />,
     [ScreenTypes.QuizDetailsScreen]: <QuizDetailsScreen />,
     [ScreenTypes.QuestionScreen]: <QuestionScreen />,
     [ScreenTypes.QuizReport]: <QuizReport />,
