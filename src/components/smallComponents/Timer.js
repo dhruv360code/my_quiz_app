@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
+import { useQuiz } from "../../context/index";
+import { ScreenTypes } from "../../context/index";
 
 function Timer() {
-  const [seconds, setSeconds] = useState(1 * 60);
+  const [seconds, setSeconds] = useState(1 * 1800);
+  const { setCurrentScreen } = useQuiz();
 
   useEffect(() => {
     const interval = setInterval(() => {
       setSeconds((prevSeconds) => {
-        if (prevSeconds < 0) {
-          clearInterval(interval);
-          return 0;
-        }
         if (prevSeconds === 1) {
-          alert("Time is up!");
           clearInterval(interval);
+          setCurrentScreen(ScreenTypes.QuizReport);
+          return 0;
         }
 
         return prevSeconds - 1;

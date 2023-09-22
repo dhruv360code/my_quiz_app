@@ -1,19 +1,17 @@
-import React from 'react'
-import { Route,Routes} from 'react-router-dom'
-import Main from './components/Main'
-import HomePage from './components/HomePage'
-
-
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Main from "./components/Main";
+import HomePage from "./components/HomePage";
 
 const AppRoutes = () => {
   return (
     <>
-    <Routes>
+      <Routes>
         <Route exact path="/" element={<HomePage />} />
-        <Route exact path="/main" element={<Main />} />
-    </Routes>  
+        <Route exact path="/quiz" element={<Main />} />
+      </Routes>
     </>
-  )
-}
+  );
+};
 
 export default AppRoutes;

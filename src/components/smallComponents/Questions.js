@@ -32,7 +32,7 @@ const Question = ({ question, choices }) => {
       <div className="space-y-2">
         {choices.map((choice, index) => (
           <div
-            key={index}
+            key={index + 100}
             className={`flex items-center p-2 rounded border border-solid ${
               selectedChoice === choice
                 ? "bg-green-100 border-green-500"

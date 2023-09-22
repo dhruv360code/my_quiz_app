@@ -5,7 +5,7 @@ export const ScreenTypes = {
   SplashScreen: "SplashScreen",
   QuizDetailsScreen: "QuizDetailsScreen",
   QuestionScreen: "QuestionScreen",
-  ResultScreen: "ResultScreen",
+  QuizReport: "QuizReport",
 };
 
 export const QuizContext = createContext();
@@ -136,10 +136,10 @@ const QuizProvider = ({ children }) => {
   };
 
   const { totalTime, totalQuestions, totalScore } = QuizInfo;
-
   useEffect(() => {
     setTimer(totalTime);
     fetchQuestionsFromAPI();
+    //  eslint-disable-next-line
   }, []);
 
   const quizDetails = {
